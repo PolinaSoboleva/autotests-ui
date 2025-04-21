@@ -7,12 +7,46 @@
         .h2-text {
             color: red
         }
+        h6 {
+            font-size: 15px
+        }
+        .h6-text {
+            color: yellow
+        }
+        #h1-text {
+            color: green
+        }
+        div.python > a {
+            color: red
+        }
+        ul li {
+            color:blue
+        }
+        input[type="text"] {
+            background-color: blue
+        }
+        input[type="text"]:hover{
+            background-color: green
+        }
+        a:hover {
+            color: red
+        }
+        ul > li::marker {
+            color: red
+        }
+        input[type="email"]:focus {
+            border-color: blue;
+        }
+        li:nth-child(odd) {
+            color: red
+        }
     </style>
 </head>
 <body>
-<div>
-    <h1 id="123">H1</h1>
-    <h2 class="h2-text">H2</h2>
+<div class="python">
+    <h1 id="h1-text">H1</h1>
+    <h1>H1 text 2</h1>
+    <h2 class="h2-text h6-text">H2</h2>
     <h3>H3</h3>
     <h6>H6</h6>
     <p>Text <span style="color: green"> Modile Safari</span></p>
@@ -33,7 +67,7 @@
         <input required type="email" value = '12345' placeholder="Email">
         <input type="password" value = '12345' placeholder="password">
         <textarea required placeholder="Text">1234</textarea>
-        <button type="submit" disabled>Text</button>
+        <button type="submit">Text</button>
     </form>
     <table>
         <thead>
@@ -56,7 +90,17 @@
         </tr>
         </tbody>
     </table>
+    <div class="nth">
+        <p>1</p>
+        <p>2</p>
+        <h6>3</h6>
+        <h5>4</h5>
+        <p>5</p>
+    </div>
 </div>
-
+<div class="java">
+    <h2 class="h2-text h6-text">H2</h2>
+    <a href="https://playwright.dev/python/" target="_blank">Java</a>
+</div>
 </body>
 </html>
