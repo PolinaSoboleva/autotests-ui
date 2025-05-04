@@ -33,8 +33,7 @@ def initialize_browser_state(playwright: Playwright):
 
 
 @pytest.fixture(autouse=True)
-@pytest.mark.usefixtures('initialize_browser_state')
-def chromium_page_with_state(playwright: Playwright):
+def chromium_page_with_state(initialize_browser_state, playwright: Playwright):
     browser = playwright.chromium.launch(headless=False)
     contex = browser.new_context(storage_state='browser-state.json')  # чтобы сохрнять данные в локал сторедж
     return contex.new_page()
