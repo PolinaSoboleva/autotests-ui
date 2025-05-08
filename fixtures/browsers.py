@@ -30,10 +30,12 @@ def initialize_browser_state(playwright: Playwright):
     registration_button.click()
 
     contex.storage_state(path='browser-state.json')
+    browser.close()
 
 
-@pytest.fixture(autouse=True)
-def chromium_page_with_state(initialize_browser_state, playwright: Playwright):
+@pytest.fixture
+def chromium_page_with_state(initialize_browser_state, playwright: Playwright) -> Page:
     browser = playwright.chromium.launch(headless=False)
-    contex = browser.new_context(storage_state='browser-state.json')  # чтобы сохрнять данные в локал сторедж
-    return contex.new_page()
+    context = browser.new_context(storage_state='browser-state.json')  # чтобы сохрнять данные в локал сторедж
+    yield context.new_page()
+    browser.close()
